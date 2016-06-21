@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="org.h2.Driver" />
+        <property name="url" value="jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE" />
+    </bean>
+
+    <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS">
+        <jdbc:script location="file:scripts/schema-base.sql" />
+    </jdbc:initialize-database>    
+	
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:spring/mybatis-config.xml" />
+    </bean>
+
+    <bean id="h2DataTypeFactory" class="org.dbunit.ext.h2.H2DataTypeFactory" />
+
+    <bean id="dbUnitDatabaseConfig" class="com.github.springtestdbunit.bean.DatabaseConfigBean">
+         <property name="datatypeFactory" ref="h2DataTypeFactory" />
+    </bean>
+
+    <bean id="dbUnitDatabaseConnection" class="com.github.springtestdbunit.bean.DatabaseDataSourceConnectionFactoryBean">
+        <property name="databaseConfig" ref="dbUnitDatabaseConfig"/>
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="ar.com.bago.persistence" />
+    </bean>	
+
+</beans>

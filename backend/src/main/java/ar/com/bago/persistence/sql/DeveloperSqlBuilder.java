@@ -1,0 +1,53 @@
+package ar.com.bago.persistence.sql;
+
+import ar.com.bago.model.developer.Seniority;
+import ar.com.bago.pagination.PageRequest;
+
+public class DeveloperSqlBuilder {
+
+    public String buildFind(final String name, final String lastName, final Seniority seniority, PageRequest pageRequest) {
+        return new CustomSQL() {
+
+            {
+                SELECT("*");
+                FROM("DEVELOPERS");
+                if (name != null) {
+                    WHERE("UPPER(NAME) LIKE #{name}");
+                }
+                if (lastName != null) {
+                    WHERE("UPPER(LAST_NAME) LIKE #{lastName}");
+                }
+                if (seniority != null) {
+                    WHERE("SENIORITY = #{seniority, typeHandler = org.apache.ibatis.type.EnumOrdinalTypeHandler}");
+                }
+                ORDER_BY("ID");
+                if (pageRequest != null) {
+                    PAGINATION();
+                }
+
+            }
+        }.toString();
+
+    }
+
+    public String buildCount(final String name, final String lastName, final Seniority seniority) {
+        return new CustomSQL() {
+
+            {
+                SELECT("COUNT(*)");
+                FROM("DEVELOPERS");
+                if (name != null) {
+                    WHERE("UPPER(NAME) LIKE #{name}");
+                }
+                if (lastName != null) {
+                    WHERE("UPPER(LAST_NAME) LIKE #{lastName}");
+                }
+                if (seniority != null) {
+                    WHERE("SENIORITY = #{seniority, typeHandler = org.apache.ibatis.type.EnumOrdinalTypeHandler}");
+                }
+
+            }
+        }.toString();
+
+    }
+}

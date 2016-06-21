@@ -1,0 +1,8 @@
+<div ng-if="app.authentication.hasPermission('CREATE_DEVELOPER')" align="right">
+    <br/> 
+	<a class="btn btn-success" ui-sref="main.createDeveloper" >New</a>
+</div>
+<div ng-controller="DeveloperController as developerController" ng-init="developerController.init()">
+	<div ng-include="'modules/developers/views/search-developers.view.html'"></div>
+	<div ng-include="'modules/developers/views/list-developers.view.html'"></div>
+</div>

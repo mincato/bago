@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context.xsd        
+        http://cxf.apache.org/jaxrs                     http://cxf.apache.org/schemas/jaxrs.xsd
+        http://www.springframework.org/schema/util      http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+        
+    <bean id="tokenHandler" class="ar.com.bago.rest.security.TokenHandler">
+        <property name="headerContentType" value="text/plain"/>
+        <property name="simetricKey" value="b400e520-c339-49e2-a427-28b87872f871"/>
+        <property name="expirationInMinutes" value="1440"/>
+        <property name="issuer" value="Bago Server"/>
+        <property name="audience" value="http://www.bago.com.ar/"/>
+        <property name="subject" value="Bago Client"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,12 @@
+{% extends 'layout.template.html' %}
+
+{% block content %}
+    <div data-ng-controller="ApplicationController as app">
+        <cent-message ng-model="app.messages.danger" danger></cent-message>
+        <cent-message ng-model="app.messages.info" info></cent-message>
+        <cent-message ng-model="app.messages.warning" warning></cent-message>
+        <cent-message ng-model="app.messages.success" success></cent-message>
+        
+        <div data-ui-view></div>
+    </div>	
+{% endblock %}

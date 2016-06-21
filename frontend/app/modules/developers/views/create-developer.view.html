@@ -1,0 +1,20 @@
+<section data-ng-controller="DeveloperController as developerController">
+    <div class="row">
+        <h3>New Developer</h3>
+        <div class="separator-line" />
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" data-ng-submit="developerController.create()" novalidate>
+                <fieldset>
+                    <div data-ng-include="'modules/developers/views/form-developer.view.html'"></div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success">Create</button>
+                        <button type="button" class="btn btn-danger" ui-sref="main.listDevelopers">Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
