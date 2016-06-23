@@ -1,9 +1,9 @@
 package ar.com.bago.model.developer;
 
+import ar.com.bago.common.random.RandomInteger;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
-import ar.com.bago.util.RandomInteger;
 
 public class DeveloperBuilder {
 

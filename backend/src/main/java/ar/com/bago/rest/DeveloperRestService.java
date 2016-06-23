@@ -20,10 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import ar.com.bago.common.pagination.PageResponse;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
-import ar.com.bago.pagination.PageResponse;
 import ar.com.bago.rest.response.RestResponseHandler;
 import ar.com.bago.service.DeveloperService;
 import io.swagger.annotations.Api;

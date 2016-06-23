@@ -15,13 +15,13 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.unitils.reflectionassert.ReflectionAssert;
 
-import ar.com.bago.exception.NotFoundException;
+import ar.com.bago.common.exception.NotFoundException;
+import ar.com.bago.common.pagination.PageRequest;
+import ar.com.bago.common.pagination.PageResponse;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperBuilder;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
-import ar.com.bago.pagination.PageRequest;
-import ar.com.bago.pagination.PageResponse;
 import ar.com.bago.persistence.DeveloperRepository;
 import ar.com.bago.service.DeveloperService;
 

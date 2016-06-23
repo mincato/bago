@@ -14,10 +14,10 @@ import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.type.DateOnlyTypeHandler;
 import org.apache.ibatis.type.EnumOrdinalTypeHandler;
 
+import ar.com.bago.common.pagination.PageRequest;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
-import ar.com.bago.pagination.PageRequest;
 import ar.com.bago.persistence.sql.DeveloperSqlBuilder;
 
 public interface DeveloperRepository {

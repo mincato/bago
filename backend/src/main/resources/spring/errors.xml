@@ -25,21 +25,21 @@
 							value="Hubo una violación de integridad de datos" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.ChangePasswordException">
+				<entry key="ar.com.bago.common.exception.ChangePasswordException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="500" />
 						<property name="code" value="3" />
 						<property name="message" value="Hubo un error al cambiar el password" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.AuthenticationException">
+				<entry key="ar.com.bago.common.exception.AuthenticationException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="401" />
 						<property name="code" value="4" />
 						<property name="message" value="Usuario o password inválido" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.RefreshTokenException">
+				<entry key="ar.com.bago.common.exception.RefreshTokenException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="500" />
 						<property name="code" value="5" />
@@ -47,7 +47,7 @@
 							value="Hubo un error al querer refrescar el token" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.ForbiddenException">
+				<entry key="ar.com.bago.common.exception.ForbiddenException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="403" />
 						<property name="code" value="6" />
@@ -63,7 +63,7 @@
 							value="Hubo una error al hacer commit de los datos. Probablemente se deba a una violación de integridad. Consulte el log para más detalle." />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.TokenExpiredException">
+				<entry key="ar.com.bago.common.exception.TokenExpiredException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="401" />
 						<property name="code" value="8" />
@@ -71,7 +71,7 @@
 							value="Token Expirado. Puede renovarlo invocando el servicio de /refresh" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.UnauthorizedException">
+				<entry key="ar.com.bago.common.exception.UnauthorizedException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="401" />
 						<property name="code" value="9" />
@@ -84,20 +84,20 @@
 						<property name="code" value="10" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.NotFoundException">
+				<entry key="ar.com.bago.common.exception.NotFoundException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="404" />
 						<property name="code" value="11" />
 						<property name="message" value="No encontrado!" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.ValidationException">
+				<entry key="ar.com.bago.common.exception.ValidationException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="400" />
 						<property name="code" value="12" />
 					</bean>
 				</entry>
-				<entry key="ar.com.bago.exception.ServiceException">
+				<entry key="ar.com.bago.common.exception.ServiceException">
 					<bean class="ar.com.bago.rest.response.BackEndError">
 						<property name="httpCode" value="500" />
 						<property name="code" value="13" />

@@ -31,7 +31,7 @@ public class SpringAuthenticationService implements AuthenticationService {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             return userLoginFactory.create(userDetails.getUser());
         } catch (AuthenticationException ex) {
-            throw new ar.com.bago.exception.AuthenticationException(ex);
+            throw new ar.com.bago.common.exception.AuthenticationException(ex);
         }
     }
 

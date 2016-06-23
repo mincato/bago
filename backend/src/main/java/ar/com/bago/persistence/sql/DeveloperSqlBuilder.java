@@ -1,7 +1,7 @@
 package ar.com.bago.persistence.sql;
 
+import ar.com.bago.common.pagination.PageRequest;
 import ar.com.bago.model.developer.Seniority;
-import ar.com.bago.pagination.PageRequest;
 
 public class DeveloperSqlBuilder {
 

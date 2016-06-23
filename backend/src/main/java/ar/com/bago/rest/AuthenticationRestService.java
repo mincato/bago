@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.com.bago.common.wrapper.WrappedString;
 import ar.com.bago.model.user.Credential;
 import ar.com.bago.model.user.User;
 import ar.com.bago.model.user.UserData;
@@ -21,7 +22,6 @@ import ar.com.bago.rest.response.RestResponseHandler;
 import ar.com.bago.rest.security.AuthenticationService;
 import ar.com.bago.rest.security.SecurityHandler;
 import ar.com.bago.rest.security.TokenHandler;
-import ar.com.bago.util.wrapper.WrappedString;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

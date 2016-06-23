@@ -1,4 +1,4 @@
-package ar.com.bago.pagination;
+package ar.com.bago.common.pagination;
 
 import ar.com.bago.model.BackEndObject;
 

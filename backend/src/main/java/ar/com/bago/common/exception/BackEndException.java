@@ -1,4 +1,4 @@
-package ar.com.bago.exception;
+package ar.com.bago.common.exception;
 
 import java.util.ArrayList;
 import java.util.List;

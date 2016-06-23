@@ -1,4 +1,4 @@
-package ar.com.bago.exception;
+package ar.com.bago.common.exception;
 
 public class ServiceException extends BackEndException {
 

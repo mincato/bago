@@ -1,4 +1,4 @@
-package ar.com.bago.util;
+package ar.com.bago.common.map;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

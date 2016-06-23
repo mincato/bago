@@ -1,4 +1,4 @@
-package ar.com.bago.exception;
+package ar.com.bago.common.exception;
 
 import java.text.MessageFormat;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ar.com.bago.util;
+package ar.com.bago.common.predicate;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.com.bago.util.EqualsPropertyPredicate;
+import ar.com.bago.common.predicate.EqualsPropertyPredicate;
 
 public class EqualsPropertyPredicateTest {
 

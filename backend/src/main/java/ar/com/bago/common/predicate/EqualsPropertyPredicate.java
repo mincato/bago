@@ -1,4 +1,4 @@
-package ar.com.bago.util;
+package ar.com.bago.common.predicate;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections.Predicate;

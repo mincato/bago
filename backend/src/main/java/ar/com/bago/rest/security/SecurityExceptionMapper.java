@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
-import ar.com.bago.exception.ForbiddenException;
+import ar.com.bago.common.exception.ForbiddenException;
 import ar.com.bago.rest.response.RestResponseHandler;
 
 @Service

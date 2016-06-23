@@ -1,4 +1,4 @@
-package ar.com.bago.util;
+package ar.com.bago.common.predicate;
 
 public class Bar extends Foo {
 

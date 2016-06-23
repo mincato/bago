@@ -14,7 +14,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-import ar.com.bago.exception.UnauthorizedException;
+import ar.com.bago.common.exception.UnauthorizedException;
 import ar.com.bago.rest.json.JSONObjectConverter;
 import ar.com.bago.rest.response.BackEndError;
 import ar.com.bago.rest.response.BackEndErrorFactory;

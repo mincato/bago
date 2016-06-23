@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.com.bago.exception.NotFoundException;
-import ar.com.bago.exception.ServiceException;
+import ar.com.bago.common.exception.NotFoundException;
+import ar.com.bago.common.exception.ServiceException;
+import ar.com.bago.common.pagination.PageRequest;
+import ar.com.bago.common.pagination.PageResponse;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
-import ar.com.bago.pagination.PageRequest;
-import ar.com.bago.pagination.PageResponse;
 import ar.com.bago.persistence.DeveloperRepository;
 
 @Service

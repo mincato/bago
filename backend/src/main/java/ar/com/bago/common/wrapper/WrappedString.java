@@ -1,4 +1,4 @@
-package ar.com.bago.util.wrapper;
+package ar.com.bago.common.wrapper;
 
 import java.io.Serializable;
 

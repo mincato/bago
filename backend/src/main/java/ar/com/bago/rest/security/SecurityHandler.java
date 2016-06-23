@@ -9,8 +9,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.com.bago.exception.RefreshTokenException;
-import ar.com.bago.exception.UnauthorizedException;
+import ar.com.bago.common.exception.RefreshTokenException;
+import ar.com.bago.common.exception.UnauthorizedException;
 import ar.com.bago.model.user.UserData;
 import ar.com.bago.rest.requestinfo.RequestInfo;
 

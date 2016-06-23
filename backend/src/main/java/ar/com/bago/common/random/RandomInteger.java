@@ -1,4 +1,4 @@
-package ar.com.bago.util;
+package ar.com.bago.common.random;
 
 import java.util.Date;
 import java.util.Random;

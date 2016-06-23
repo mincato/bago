@@ -14,7 +14,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.com.bago.exception.ValidationException;
+import ar.com.bago.common.exception.ValidationException;
 
 @Service
 public class ValidationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {

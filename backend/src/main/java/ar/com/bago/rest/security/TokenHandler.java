@@ -16,9 +16,9 @@ import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 
-import ar.com.bago.exception.TokenExpiredException;
-import ar.com.bago.exception.TokenGenerationException;
-import ar.com.bago.exception.UnauthorizedException;
+import ar.com.bago.common.exception.TokenExpiredException;
+import ar.com.bago.common.exception.TokenGenerationException;
+import ar.com.bago.common.exception.UnauthorizedException;
 import ar.com.bago.model.user.UserData;
 import ar.com.bago.rest.json.JSONObjectConverter;
 
