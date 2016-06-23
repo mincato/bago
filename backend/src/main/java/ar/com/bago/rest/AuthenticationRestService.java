@@ -15,13 +15,10 @@ import org.springframework.stereotype.Service;
 
 import ar.com.bago.common.wrapper.WrappedString;
 import ar.com.bago.model.user.Credential;
-import ar.com.bago.model.user.User;
-import ar.com.bago.model.user.UserData;
 import ar.com.bago.model.user.UserLogin;
 import ar.com.bago.rest.response.RestResponseHandler;
 import ar.com.bago.rest.security.AuthenticationService;
 import ar.com.bago.rest.security.SecurityHandler;
-import ar.com.bago.rest.security.TokenHandler;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -38,9 +35,6 @@ public class AuthenticationRestService {
     private RestResponseHandler responseHandler;
 
     @Autowired
-    private TokenHandler tokenHandler;
-
-    @Autowired
     private AuthenticationService authenticationService;
 
     @Autowired
@@ -54,7 +48,7 @@ public class AuthenticationRestService {
             @ApiResponse(code = 401, message = "Error de autenticacion => Ver code y message lanzados") })
     public Response login(@Context HttpServletRequest request, Credential credential) {
         UserLogin userLogin = authenticationService.authenticate(credential);
-        configureUser(userLogin.getUser(), request);
+        securityHandler.configureUser(userLogin.getUser(), request);
         return responseHandler.buildSuccessResponse(userLogin, Status.OK);
     }
 
@@ -70,11 +64,6 @@ public class AuthenticationRestService {
     @ApiOperation(value = "logout", notes = "Logout!!")
     public Response logout(@Context HttpServletRequest request) {
         return responseHandler.buildSuccessResponse(Status.OK);
-    }
-
-    private void configureUser(User user, HttpServletRequest request) {
-        String token = tokenHandler.createToken(new UserData(user));
-        user.setToken(token);
     }
 
 }

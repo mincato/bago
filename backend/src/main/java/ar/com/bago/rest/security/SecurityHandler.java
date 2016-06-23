@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import ar.com.bago.common.exception.RefreshTokenException;
 import ar.com.bago.common.exception.UnauthorizedException;
+import ar.com.bago.model.user.User;
 import ar.com.bago.model.user.UserData;
 import ar.com.bago.rest.requestinfo.RequestInfo;
 
@@ -104,6 +105,11 @@ public class SecurityHandler {
         } catch (Exception e) {
             throw new RefreshTokenException(e);
         }
+    }
+
+    public void configureUser(User user, HttpServletRequest request) {
+        String token = tokenHandler.createToken(new UserData(user));
+        user.setToken(token);
     }
 
 }
