@@ -6,7 +6,7 @@ import ar.com.bago.model.developer.Seniority;
 public class DeveloperSqlBuilder {
 
     public String buildFind(final String name, final String lastName, final Seniority seniority, PageRequest pageRequest) {
-        return new CustomSQL() {
+        return new OracleCustomSQL() {
 
             {
                 SELECT("*");
@@ -31,7 +31,8 @@ public class DeveloperSqlBuilder {
     }
 
     public String buildCount(final String name, final String lastName, final Seniority seniority) {
-        return new CustomSQL() {
+    	
+        return new OracleCustomSQL() {
 
             {
                 SELECT("COUNT(*)");
