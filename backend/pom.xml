@@ -287,7 +287,9 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
+			<scope>system</scope>
 			<version>${oracle.version}</version>
+			<systemPath>${basedir}/libs/ojdbc7.jar</systemPath>
 		</dependency>
 
 		<!-- C3P0 Connection Pool -->
