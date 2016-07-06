@@ -7,6 +7,14 @@
 	<packaging>war</packaging>
 	<version>0.1</version>
 	<name>Bago Archetype</name>
+	
+	<repositories>
+	    <repository>
+	       <id>local-repo</id>
+	       <url>file://${basedir}//libs//</url>
+	    </repository>
+	</repositories>
+	
 
 	<properties>
 		<frontend.basedir>../frontend</frontend.basedir>
@@ -197,6 +205,10 @@
     		<groupId>org.springframework.security</groupId>
     		<artifactId>spring-security-config</artifactId>
 		</dependency>
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-ldap</artifactId>
+		</dependency>
 
 		<!-- AspectJ Tools -->
 		<dependency>
@@ -287,9 +299,7 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
-			<scope>system</scope>
 			<version>${oracle.version}</version>
-			<systemPath>${basedir}/libs/ojdbc7.jar</systemPath>
 		</dependency>
 
 		<!-- C3P0 Connection Pool -->
