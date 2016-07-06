@@ -101,8 +101,8 @@ public class DeveloperRestService {
             @ApiResponse(code = 401, message = "Usuario no autenticado"),
             @ApiResponse(code = 403, message = "Usuario no autorizado"),
             @ApiResponse(code = 404, message = "Developer no encontrado") })
-    public Response update(@Context HttpServletRequest request, Developer developer) {
-        Developer developerUpdated = developerService.update(developer);
+    public Response update(@Context HttpServletRequest request, @PathParam("id") Integer id, Developer developer) {
+        Developer developerUpdated = developerService.update(id, developer);
         return responseHandler.buildSuccessResponse(developerUpdated, Status.OK);
     }
 
