@@ -39,8 +39,8 @@ public interface DeveloperRepository {
     Developer findById(@Param("developerId") Integer id);
 
     @Insert("INSERT INTO DEVELOPERS (NAME, LAST_NAME, SENIORITY, DATE_ENTRY) VALUES (#{name}, #{lastName},"
-            + "#{seniority, typeHandler = org.apache.ibatis.type.EnumOrdinalTypeHandler}, #{dateEntry})")
-    @Options(useGeneratedKeys = true, keyProperty = "id")
+            + "#{seniority, typeHandler = org.apache.ibatis.type.EnumOrdinalTypeHandler}, #{dateEntry:TIMESTAMP})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void save(Developer newDeveloper);
 
     @Delete("DELETE FROM DEVELOPERS WHERE ID = #{developerId}")
@@ -48,7 +48,7 @@ public interface DeveloperRepository {
 
     @Update("UPDATE DEVELOPERS SET NAME = #{name}, LAST_NAME = #{lastName}, "
             + "SENIORITY = #{seniority, typeHandler = org.apache.ibatis.type.EnumOrdinalTypeHandler}, "
-            + "DATE_ENTRY = #{dateEntry} " + "WHERE ID = #{id}")
+            + "DATE_ENTRY = #{dateEntry:TIMESTAMP} " + "WHERE ID = #{id}")
     void update(Developer developer);
 
 }
