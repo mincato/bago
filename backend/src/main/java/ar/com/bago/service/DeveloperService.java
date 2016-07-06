@@ -56,7 +56,8 @@ public class DeveloperService {
         return newDeveloper;
     }
 
-    public Developer update(Developer developer) {
+    public Developer update(Integer id, Developer developer) {
+    	developer.setId(id);
         repository.update(developer);
         return developer;
     }
