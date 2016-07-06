@@ -21,11 +21,7 @@
     <beans:bean id="authorizationTokenFilter" class="ar.com.bago.rest.security.AuthorizationTokenFilter">
         <beans:property name="authenticationManager" ref="authenticationManager" />
     </beans:bean>
-
-   	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="userDetailsServiceImpl">
-	    	<password-encoder hash="bcrypt" />
-		</authentication-provider>
-  	</authentication-manager>
+    
+   	<beans:import resource="security-spring-ldap.xml" />
     
 </beans:beans>
