@@ -75,7 +75,7 @@ public class DeveloperEndpointsTest {
 
         String url = DeveloperRestService.class.getAnnotation(Path.class).value();
 
-        Method method = DeveloperRestService.class.getMethod("update", HttpServletRequest.class, Developer.class);
+        Method method = DeveloperRestService.class.getMethod("update", HttpServletRequest.class, Integer.class, Developer.class);
 
         url += "/" + method.getAnnotation(Path.class).value();
 

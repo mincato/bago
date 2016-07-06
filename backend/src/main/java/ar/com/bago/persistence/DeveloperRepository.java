@@ -51,4 +51,7 @@ public interface DeveloperRepository {
             + "DATE_ENTRY = #{dateEntry:TIMESTAMP} " + "WHERE ID = #{id}")
     void update(Developer developer);
 
+    @Select("SELECT COUNT(*) FROM DEVELOPERS WHERE ID=#{developerId}")
+    boolean exists(@Param("developerId") Integer id);
+
 }

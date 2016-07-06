@@ -57,6 +57,9 @@ public class DeveloperService {
     }
 
     public Developer update(Integer id, Developer developer) {
+    	if (!repository.exists(id)) {
+    		throw new NotFoundException();
+    	}
     	developer.setId(id);
         repository.update(developer);
         return developer;
