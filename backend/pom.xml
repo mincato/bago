@@ -17,6 +17,8 @@
 	
 
 	<properties>
+	    <build.number>SNAPSHOT</build.number>
+		
 		<frontend.basedir>../frontend</frontend.basedir>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -393,6 +395,17 @@
 						<artifactId>maven-war-plugin</artifactId>
 						<version>${maven.war.plugin.version}</version>
 						<configuration>
+                			<archive>
+								<manifest>
+    	                			<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+        	            			<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            	    			</manifest>
+                    			<manifestEntries>
+                        			<Specification-Title>${project.name}</Specification-Title>
+                        			<Specification-Version>${project.version}</Specification-Version>
+                        			<Implementation-Version>${build.number}</Implementation-Version>
+                    			</manifestEntries>
+                			</archive>
 							<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 							<warName>${project.build.finalName}</warName>
 							<webResources>
@@ -435,6 +448,17 @@
 						<artifactId>maven-war-plugin</artifactId>
 						<version>${maven.war.plugin.version}</version>
 						<configuration>
+							<archive>
+								<manifest>
+    	                			<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+        	            			<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            	    			</manifest>
+                    			<manifestEntries>
+                        			<Specification-Title>${project.name}</Specification-Title>
+                        			<Specification-Version>${project.version}</Specification-Version>
+                        			<Implementation-Version>${build.number}</Implementation-Version>
+                    			</manifestEntries>
+                			</archive>
 							<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 							<warName>${project.build.finalName}</warName>
 							<webResources>
@@ -456,6 +480,19 @@
 					<plugin>
 						<artifactId>maven-war-plugin</artifactId>
 						<version>${maven.war.plugin.version}</version>
+						<configuration>
+							<archive>
+								<manifest>
+    	                			<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+        	            			<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            	    			</manifest>
+                    			<manifestEntries>
+                        			<Specification-Title>${project.name}</Specification-Title>
+                        			<Specification-Version>${project.version}</Specification-Version>
+                        			<Implementation-Version>${build.number}</Implementation-Version>
+                    			</manifestEntries>
+                			</archive>
+                		</configuration>
 					</plugin>
 				</plugins>							
 			</build>

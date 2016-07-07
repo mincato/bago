@@ -10,6 +10,7 @@
     
     <http pattern="/services/auth/**" security="none"/>
     <http pattern="/services/swagger/**" security="none"/>
+    <http pattern="/services/admin/version/**" security="none"/>
 
     <http entry-point-ref="entryPointUnauthorizedHandler" use-expressions="true" create-session="stateless">
         <csrf disabled="true"/>
