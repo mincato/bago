@@ -7,6 +7,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.com.bago.model.user.Permission;
+import ar.com.bago.model.user.Role;
 import ar.com.bago.model.user.User;
 import ar.com.bago.persistence.UserRepository;
 
@@ -15,7 +17,7 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
+    
     @Transactional
     public User updateUser(User user) {
         throw new UnsupportedOperationException("Not supported yet");
@@ -30,5 +32,15 @@ public class UserService {
     public Set<String> findPermissionsByUser(Integer userId) {
         return userRepository.findPermissionsByUser(userId);
     }
+
+    @Transactional
+	public Role saveRole(Role newRole) {
+		userRepository.saveRole(newRole);
+		for (Permission permission : newRole.getPermissions()) {
+			userRepository.saveRolePermissionRelationship(newRole, permission);
+		}
+		
+        return newRole;
+	}
 
 }

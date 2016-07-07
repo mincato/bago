@@ -33,6 +33,7 @@
 			<ref bean="authenticationRestService" />
 			<ref bean="developerRestService" />
 			<ref bean="cacheRestService" />
+			<ref bean="userRestService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean="restExceptionMapper" />
