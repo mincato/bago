@@ -7,6 +7,8 @@ package ar.com.bago.model.user;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import ar.com.bago.model.BackEndEntity;
@@ -16,8 +18,10 @@ public class Role extends BackEndEntity {
 
     private static final long serialVersionUID = -655321606681663452L;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private List<Permission> permissions;
 
     public String getName() {
