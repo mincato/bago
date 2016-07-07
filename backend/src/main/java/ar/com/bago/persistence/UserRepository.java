@@ -38,12 +38,12 @@ public interface UserRepository {
             + "INNER JOIN ROLES_PERMISSIONS RP ON P.ID = RP.PERMISSION_ID "
             + "INNER JOIN USER_ROLES UR ON UR.ROLE_ID = RP.ROLE_ID " + "WHERE UR.USER_ID = #{userId}")
     Set<String> findPermissionsByUser(@Param("userId") Integer userId);
-    
+
     @Insert("INSERT INTO ROLES (NAME) VALUES (#{name})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void saveRole(Role newRole);
 
     @Insert("INSERT INTO ROLES_PERMISSIONS (ROLE_ID, PERMISSION_ID) VALUES (#{role.id}, #{permission.id})")
-	void saveRolePermissionRelationship(@Param("role") Role role, @Param("permission") Permission permission);
+    void saveRolePermissionRelationship(@Param("role") Role role, @Param("permission") Permission permission);
 
 }

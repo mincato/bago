@@ -10,7 +10,7 @@ public class BackEndException extends RuntimeException {
     private List<Object> params;
 
     private Object data;
-    
+
     public BackEndException() {
         super();
     }

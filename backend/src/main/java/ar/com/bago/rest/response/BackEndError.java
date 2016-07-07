@@ -28,7 +28,7 @@ public class BackEndError implements Serializable {
         this.code = code;
         this.message = message;
     }
-    
+
     public BackEndError(BackEndError error) {
         this.httpCode = error.getHttpCode();
         this.code = error.getCode();

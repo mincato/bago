@@ -17,7 +17,7 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-    
+
     @Transactional
     public User updateUser(User user) {
         throw new UnsupportedOperationException("Not supported yet");
@@ -34,13 +34,13 @@ public class UserService {
     }
 
     @Transactional
-	public Role saveRole(Role newRole) {
-		userRepository.saveRole(newRole);
-		for (Permission permission : newRole.getPermissions()) {
-			userRepository.saveRolePermissionRelationship(newRole, permission);
-		}
-		
+    public Role saveRole(Role newRole) {
+        userRepository.saveRole(newRole);
+        for (Permission permission : newRole.getPermissions()) {
+            userRepository.saveRolePermissionRelationship(newRole, permission);
+        }
+
         return newRole;
-	}
+    }
 
 }

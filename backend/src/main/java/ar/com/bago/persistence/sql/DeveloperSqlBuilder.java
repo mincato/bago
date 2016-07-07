@@ -31,7 +31,7 @@ public class DeveloperSqlBuilder {
     }
 
     public String buildCount(final String name, final String lastName, final Seniority seniority) {
-    	
+
         return new OracleCustomSQL() {
 
             {

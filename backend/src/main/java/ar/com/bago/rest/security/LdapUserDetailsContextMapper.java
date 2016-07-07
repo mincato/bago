@@ -12,21 +12,21 @@ import org.springframework.security.ldap.userdetails.UserDetailsContextMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LdapUserDetailsContextMapper implements UserDetailsContextMapper{
+public class LdapUserDetailsContextMapper implements UserDetailsContextMapper {
 
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Override
-	public UserDetails mapUserFromContext(DirContextOperations context, String username,
-			Collection<? extends GrantedAuthority> authorities) {
-		return userDetailsService.loadUserByUsername(username);
-	}
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-	@Override
-	public void mapUserToContext(UserDetails arg0, DirContextAdapter arg1) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public UserDetails mapUserFromContext(DirContextOperations context, String username,
+            Collection<? extends GrantedAuthority> authorities) {
+        return userDetailsService.loadUserByUsername(username);
+    }
+
+    @Override
+    public void mapUserToContext(UserDetails arg0, DirContextAdapter arg1) {
+        // TODO Auto-generated method stub
+
+    }
 
 }

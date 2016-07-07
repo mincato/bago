@@ -140,14 +140,14 @@ public class DeveloperRepositoryTest {
     public void delete() {
         developerRepository.delete(1);
     }
-    
+
     @Test
     @DatabaseSetup(value = "/dbtest/developer/developers.xml", type = DatabaseOperation.INSERT)
     @DatabaseTearDown(value = "/dbtest/developer/developers.xml", type = DatabaseOperation.DELETE_ALL)
     public void existsTrue() {
         Assert.assertTrue(developerRepository.exists(1));
     }
-    
+
     @Test
     @DatabaseSetup(value = "/dbtest/developer/developers.xml", type = DatabaseOperation.INSERT)
     @DatabaseTearDown(value = "/dbtest/developer/developers.xml", type = DatabaseOperation.DELETE_ALL)

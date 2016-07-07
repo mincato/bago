@@ -57,10 +57,10 @@ public class DeveloperService {
     }
 
     public Developer update(Integer id, Developer developer) {
-    	if (!repository.exists(id)) {
-    		throw new NotFoundException();
-    	}
-    	developer.setId(id);
+        if (!repository.exists(id)) {
+            throw new NotFoundException();
+        }
+        developer.setId(id);
         repository.update(developer);
         return developer;
     }
@@ -68,7 +68,7 @@ public class DeveloperService {
     public void delete(Integer id) {
         repository.delete(id);
     }
-    
+
     public void throwServiceException(String param) {
         ServiceException serviceException = new ServiceException();
         serviceException.addParam(param);

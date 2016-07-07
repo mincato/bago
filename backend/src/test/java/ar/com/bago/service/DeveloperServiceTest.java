@@ -80,14 +80,14 @@ public class DeveloperServiceTest {
 
     @Test
     public void update() {
-    	when(developerRepository.exists(Mockito.any(Integer.class))).thenReturn(true);
+        when(developerRepository.exists(Mockito.any(Integer.class))).thenReturn(true);
         developerService.update(developerKyloRen.getId(), developerKyloRen);
         verify(developerRepository, times(1)).update(developerKyloRen);
     }
-    
+
     @Test(expected = NotFoundException.class)
     public void givenNonExistentDeveloperWhenCallUpdateThenThrowsNotFound() {
-    	when(developerRepository.exists(Mockito.any(Integer.class))).thenReturn(false);
+        when(developerRepository.exists(Mockito.any(Integer.class))).thenReturn(false);
         developerService.update(developerKyloRen.getId(), developerKyloRen);
     }
 

@@ -52,7 +52,7 @@ public class BackEndErrorFactory {
         }
         return new BackEndError(error);
     }
-    
+
     private void formatMessage(BackEndError error, BackEndException backEndException) {
         List<Object> params = backEndException.getParams();
         if (CollectionUtils.isNotEmpty(params)) {

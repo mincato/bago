@@ -119,7 +119,7 @@ public class DeveloperRestService {
         developerService.delete(id);
         return responseHandler.buildSuccessResponse(Status.OK);
     }
-    
+
     @GET
     @Path("throw/{param}")
     @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
@@ -131,7 +131,7 @@ public class DeveloperRestService {
     public Response throwServiceException(@Context HttpServletRequest request, @PathParam("param") String param) {
         developerService.throwServiceException(param);
         return responseHandler.buildSuccessResponse(Status.OK);
-    }    
+    }
 
     public void setResponseHandler(RestResponseHandler responseHandler) {
         this.responseHandler = responseHandler;
