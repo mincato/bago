@@ -34,6 +34,7 @@
 			<ref bean="developerRestService" />
 			<ref bean="cacheRestService" />
 			<ref bean="userRestService" />
+			<ref bean="adminRestService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean="restExceptionMapper" />

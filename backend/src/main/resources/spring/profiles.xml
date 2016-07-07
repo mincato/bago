@@ -11,15 +11,15 @@
         http://cxf.apache.org/schemas/jaxrs.xsd">
 
     <beans profile="localhost">
-        <context:property-placeholder location="classpath:localhost.properties" ignore-unresolvable="true"/>
+        <context:property-placeholder location="classpath:localhost.properties, /META-INF/MANIFEST.MF" ignore-unresolvable="true"/>
     </beans>
 
     <beans profile="testing">
-        <context:property-placeholder location="classpath:testing.properties" ignore-unresolvable="true"/>
+        <context:property-placeholder location="classpath:testing.properties, /META-INF/MANIFEST.MF" ignore-unresolvable="true"/>
     </beans>
 
     <beans profile="production">
-        <context:property-placeholder location="classpath:production.properties" ignore-unresolvable="true"/>
+        <context:property-placeholder location="classpath:production.properties, /META-INF/MANIFEST.MF" ignore-unresolvable="true"/>
     </beans>
     
 </beans>
