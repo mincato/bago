@@ -24,5 +24,6 @@
     </beans:bean>
     
    	<beans:import resource="security-spring-ldap.xml" />
+<!-- 	<beans:import resource="security-spring-database.xml" /> -->
     
 </beans:beans>
