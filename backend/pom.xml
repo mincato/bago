@@ -5,7 +5,7 @@
 	<groupId>ar.com.bago.archetype</groupId>
 	<artifactId>bago-archetype</artifactId>
 	<packaging>war</packaging>
-	<version>0.1</version>
+	<version>0.2</version>
 	<name>Bago Archetype</name>
 	
 	<repositories>
@@ -14,10 +14,9 @@
 	       <url>file://${basedir}//libs//</url>
 	    </repository>
 	</repositories>
-	
 
 	<properties>
-	    <build.number>SNAPSHOT</build.number>
+	    <build.number>${project.version}</build.number>
 		
 		<frontend.basedir>../frontend</frontend.basedir>
 

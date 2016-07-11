@@ -2,7 +2,7 @@ package ar.com.bago.persistence.sql;
 
 import org.apache.ibatis.jdbc.SQL;
 
-public class CustomSQL extends SQL {
+public class PostgresCustomSQL extends SQL {
 
     private static final String PAGINATION = " LIMIT #{pageRequest.limit} OFFSET #{pageRequest.offset}";
 
@@ -14,7 +14,7 @@ public class CustomSQL extends SQL {
     }
 
     @Override
-    public CustomSQL getSelf() {
+    public PostgresCustomSQL getSelf() {
         return this;
     }
 
