@@ -2,6 +2,7 @@ package ar.com.bago.rest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.StreamingOutput;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -131,6 +133,29 @@ public class DeveloperRestService {
     public Response throwServiceException(@Context HttpServletRequest request, @PathParam("param") String param) {
         developerService.throwServiceException(param);
         return responseHandler.buildSuccessResponse(Status.OK);
+    }
+
+    @GET
+    @Path("/details-report.pdf")
+    @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
+    @ApiOperation(value = "getDetailReport", notes = "Devuelve el reporte de developers en PDF.")
+    @Produces("application/pdf")
+    public StreamingOutput getDetailReport(@Context HttpServletRequest request) throws Exception {
+        byte[] out = developerService.getDetailReport();
+        return responseHandler.createStreamingOutput(out);
+
+    }
+
+    @GET
+    @Path("/details-seniority-report.pdf")
+    @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
+    @ApiOperation(value = "getDetailReportBySeniority", notes = "Devuelve el reporte de developers por seniority en PDF.")
+    @Produces("application/pdf")
+    public StreamingOutput getDetailReportBySeniority(@Context HttpServletRequest request,
+            @QueryParam("seniority") @NotNull Seniority seniority) throws Exception {
+        byte[] out = developerService.getDetailReport(seniority);
+        return responseHandler.createStreamingOutput(out);
+
     }
 
     public void setResponseHandler(RestResponseHandler responseHandler) {

@@ -1,9 +1,13 @@
 package ar.com.bago.service;
 
+import java.io.InputStream;
 import java.text.MessageFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import ar.com.bago.common.exception.NotFoundException;
@@ -20,6 +24,12 @@ public class DeveloperService {
 
     @Autowired
     private DeveloperRepository repository;
+
+    @Value("${developer.report.details.resource}")
+    private String detailReportResourceName;
+
+    @Autowired
+    private ReportService reportService;
 
     public PageResponse<DeveloperListView> find(String name, String lastName, Seniority seniority, Integer pageNumber,
             Integer pageSize) {
@@ -83,4 +93,19 @@ public class DeveloperService {
         return Seniority.values();
     }
 
+    public byte[] getDetailReport() throws Exception {
+        List<Developer> developers = this.repository.findAll();
+        InputStream reportStream = this.getClass().getResourceAsStream(detailReportResourceName);
+        Map<String, Object> params = new HashMap<>();
+        params.put("ReportTitle", "All Developers");
+        return reportService.create(reportStream, params, developers);
+    }
+
+    public byte[] getDetailReport(Seniority seniority) {
+        List<Developer> developers = this.repository.findBySeniority(seniority);
+        InputStream reportStream = this.getClass().getResourceAsStream(detailReportResourceName);
+        Map<String, Object> params = new HashMap<>();
+        params.put("ReportTitle", String.format("%s Developers", seniority.toString()));
+        return reportService.create(reportStream, params, developers);
+    }
 }
