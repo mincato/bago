@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -27,6 +28,14 @@ public interface DeveloperRepository {
             @Result(property = "name", column = "NAME"), @Result(property = "lastName", column = "LAST_NAME") })
     List<DeveloperListView> find(@Param("name") String name, @Param("lastName") String lastName,
             @Param("seniority") Seniority seniority, @Param("pageRequest") PageRequest pageRequest);
+
+    @Select("SELECT * FROM DEVELOPERS")
+    @ResultMap("developerResult")
+    List<Developer> findAll();
+
+    @Select("SELECT * FROM DEVELOPERS WHERE SENIORITY = #{seniority, typeHandler = org.apache.ibatis.type.EnumOrdinalTypeHandler}")
+    @ResultMap("developerResult")
+    List<Developer> findBySeniority(@Param("seniority") Seniority seniority);
 
     @SelectProvider(type = DeveloperSqlBuilder.class, method = "buildCount")
     Long count(@Param("name") String name, @Param("lastName") String lastName, @Param("seniority") Seniority seniority);

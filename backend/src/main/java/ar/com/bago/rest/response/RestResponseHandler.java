@@ -1,10 +1,14 @@
 package ar.com.bago.rest.response;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URI;
 
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.StatusType;
+import javax.ws.rs.core.StreamingOutput;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +48,16 @@ public class RestResponseHandler {
 
     public Response buildRedirectURI(URI location) {
         return Response.seeOther(location).build();
+    }
+
+    public StreamingOutput createStreamingOutput(byte[] out) {
+        return new StreamingOutput() {
+
+            @Override
+            public void write(OutputStream output) throws IOException, WebApplicationException {
+                output.write(out);
+            }
+        };
     }
 
 }
