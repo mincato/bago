@@ -9,6 +9,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.com.bago.rest.security.SecurityHandler;
@@ -18,6 +19,7 @@ import ar.com.bago.rest.security.SecurityHandler;
 public class RestInfoPicker {
 
     @Autowired
+    @Qualifier("headerRequestHandler")
     private SecurityHandler requestHandler;
 
     @Around("execution(* ar.com.bago..*RestService.*(..))")

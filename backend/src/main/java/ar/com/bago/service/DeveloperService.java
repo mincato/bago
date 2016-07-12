@@ -93,19 +93,19 @@ public class DeveloperService {
         return Seniority.values();
     }
 
-    public byte[] getDetailReport() throws Exception {
-        List<Developer> developers = this.repository.findAll();
-        InputStream reportStream = this.getClass().getResourceAsStream(detailReportResourceName);
-        Map<String, Object> params = new HashMap<>();
-        params.put("ReportTitle", "All Developers");
-        return reportService.create(reportStream, params, developers);
-    }
-
     public byte[] getDetailReport(Seniority seniority) {
-        List<Developer> developers = this.repository.findBySeniority(seniority);
         InputStream reportStream = this.getClass().getResourceAsStream(detailReportResourceName);
+        List<Developer> developers = null;
+        String title = null;
+        if (seniority == null) {
+            developers = this.repository.findAll();
+            title = "All";
+        } else {
+            developers = this.repository.findBySeniority(seniority);
+            title = seniority.toString();
+        }
         Map<String, Object> params = new HashMap<>();
-        params.put("ReportTitle", String.format("%s Developers", seniority.toString()));
+        params.put("ReportTitle", String.format("%s Developers", title));
         return reportService.create(reportStream, params, developers);
     }
 }

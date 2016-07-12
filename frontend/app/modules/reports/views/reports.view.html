@@ -1,0 +1,36 @@
+<div ng-controller="ReportController as reportController">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Reportes</h3>
+            <div class="separator-line" />
+        </div>
+    </div>
+
+    <div class="row">
+        <form role="form" name="form" data-ng-submit="reportController.generate()" novalidate>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-lg-6 col-sm-6">
+                        <label for="category" class="col-lg-4 form-control-label text-right">Seniority</label>
+                        <div class="col-lg-8">
+                            <select class="form-control" name="seniority" 
+                                    ng-model="reportController.params.seniority" 
+                                    ng-options="seniority for seniority in reportController.seniorities">
+                                <option value="">Select Seniority</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="text-center">
+                        <button class="btn btn-success" type="submit">
+                            <i class="glyphicon glyphicon-search"></i> Generar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

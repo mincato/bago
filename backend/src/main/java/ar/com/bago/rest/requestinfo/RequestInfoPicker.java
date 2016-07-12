@@ -11,6 +11,7 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.Context;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.com.bago.rest.security.SecurityHandler;
@@ -22,6 +23,7 @@ public class RequestInfoPicker implements ContainerRequestFilter {
     private HttpServletRequest request;
 
     @Autowired
+    @Qualifier("headerRequestHandler")
     private SecurityHandler requestHandler;
 
     @Override

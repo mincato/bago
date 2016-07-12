@@ -103,7 +103,7 @@
 						<property name="code" value="13" />
 						<property name="message" value="Una excepción genérica de servicio con parametro = {0}" />
 					</bean>
-				</entry>				
+				</entry>
 			</map>
 		</property>
 	</bean>
