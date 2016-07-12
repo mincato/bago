@@ -2,7 +2,6 @@ package ar.com.bago.rest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -138,21 +137,10 @@ public class DeveloperRestService {
     @GET
     @Path("/details-report.pdf")
     @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
-    @ApiOperation(value = "getDetailReport", notes = "Devuelve el reporte de developers en PDF.")
-    @Produces("application/pdf")
-    public StreamingOutput getDetailReport(@Context HttpServletRequest request) throws Exception {
-        byte[] out = developerService.getDetailReport();
-        return responseHandler.createStreamingOutput(out);
-
-    }
-
-    @GET
-    @Path("/details-seniority-report.pdf")
-    @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
     @ApiOperation(value = "getDetailReportBySeniority", notes = "Devuelve el reporte de developers por seniority en PDF.")
     @Produces("application/pdf")
     public StreamingOutput getDetailReportBySeniority(@Context HttpServletRequest request,
-            @QueryParam("seniority") @NotNull Seniority seniority) throws Exception {
+            @QueryParam("seniority") Seniority seniority) throws Exception {
         byte[] out = developerService.getDetailReport(seniority);
         return responseHandler.createStreamingOutput(out);
 

@@ -17,6 +17,9 @@
             <li ui-sref-active="active" ng-if="authentication.hasPermission('READ_DEVELOPER')">
                 <a ui-sref="main.listDevelopers({origin : 'menu'})"><i class="fa fa-users fa-fw"></i> Developers</a>
             </li>
+            <li ui-sref-active="active" ng-if="authentication.hasPermission('READ_DEVELOPER')">
+                <a ui-sref="main.reports"><i class="fa fa-pie-chart fa-fw"></i> Reportes</a>
+            </li>
             <li ng-class="{active: collapseVar==1}">{{dropDown}}
                 <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
                         class="fa arrow"></span></a>

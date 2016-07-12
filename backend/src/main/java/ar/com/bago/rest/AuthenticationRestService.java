@@ -11,6 +11,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.com.bago.common.wrapper.WrappedString;
@@ -38,6 +39,7 @@ public class AuthenticationRestService {
     private AuthenticationService authenticationService;
 
     @Autowired
+    @Qualifier("headerRequestHandler")
     private SecurityHandler securityHandler;
 
     @POST
