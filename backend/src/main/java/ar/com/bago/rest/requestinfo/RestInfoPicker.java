@@ -19,7 +19,6 @@ import ar.com.bago.rest.security.SecurityHandler;
 public class RestInfoPicker {
 
     @Autowired
-    @Qualifier("headerRequestHandler")
     private SecurityHandler requestHandler;
 
     @Around("execution(* ar.com.bago..*RestService.*(..))")

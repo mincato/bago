@@ -23,8 +23,6 @@ public class SecurityHandler {
     @Autowired
     private TokenHandler tokenHandler;
 
-    private TokenResolver tokenResolver;
-
     public UserData verifyToken(HttpServletRequest request) {
         String token = getToken(request);
         return tokenHandler.verifyToken(token);
@@ -83,7 +81,7 @@ public class SecurityHandler {
     }
 
     public String getToken(HttpServletRequest request) {
-        String value = tokenResolver.getToken(request);
+        String value = request.getHeader("Authorization");
         if (StringUtils.isBlank(value)) {
             throw new UnauthorizedException("Token not found");
         }
@@ -112,14 +110,6 @@ public class SecurityHandler {
     public void configureUser(User user, HttpServletRequest request) {
         String token = tokenHandler.createToken(new UserData(user));
         user.setToken(token);
-    }
-
-    public void setTokenHandler(TokenHandler tokenHandler) {
-        this.tokenHandler = tokenHandler;
-    }
-
-    public void setTokenResolver(TokenResolver tokenResolver) {
-        this.tokenResolver = tokenResolver;
     }
 
 }

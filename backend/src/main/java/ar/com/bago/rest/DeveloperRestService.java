@@ -15,7 +15,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.StreamingOutput;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -138,11 +137,19 @@ public class DeveloperRestService {
     @Path("/details-report.pdf")
     @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
     @ApiOperation(value = "getDetailReportBySeniority", notes = "Devuelve el reporte de developers por seniority en PDF.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Error interno del sistema => Ver code y message lanzados"),
+            @ApiResponse(code = 401, message = "Usuario no autenticado"),
+            @ApiResponse(code = 403, message = "Usuario no autorizado") })
     @Produces("application/pdf")
-    public StreamingOutput getDetailReportBySeniority(@Context HttpServletRequest request,
+    public Response getDetailReportBySeniority(@Context HttpServletRequest request,
             @QueryParam("seniority") Seniority seniority) throws Exception {
-        byte[] out = developerService.getDetailReport(seniority);
-        return responseHandler.createStreamingOutput(out);
+        try {
+            byte[] out = developerService.getDetailReport(seniority);
+            return responseHandler.buildSuccessResponse(responseHandler.createStreamingOutput(out), Status.OK);
+        } catch (Exception e) {
+            return responseHandler.buildSuccessResponse(Status.INTERNAL_SERVER_ERROR);
+        }
 
     }
 

@@ -17,6 +17,7 @@ import ar.com.bago.model.user.UserData;
 
 public class AuthorizationTokenFilter extends UsernamePasswordAuthenticationFilter {
 
+    @Autowired
     private SecurityHandler requestHandler;
 
     @Autowired
@@ -40,10 +41,6 @@ public class AuthorizationTokenFilter extends UsernamePasswordAuthenticationFilt
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         chain.doFilter(request, response);
-    }
-
-    public void setRequestHandler(SecurityHandler requestHandler) {
-        this.requestHandler = requestHandler;
     }
 
 }
