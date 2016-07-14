@@ -4,8 +4,8 @@ angular.module('reports').config(['$stateProvider',
 	function($stateProvider) {
 		$stateProvider.
 		state('main.reports', {
-			url: '/reports',
-			templateUrl: 'modules/reports/views/reports.view.html',
+			url: '/reports/developers',
+			templateUrl: 'modules/reports/views/developers-reports.view.html',
             data: {
                 permission: 'READ_DEVELOPER'
             }

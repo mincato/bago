@@ -12,13 +12,6 @@
     <http pattern="/services/swagger/**" security="none"/>
     <http pattern="/services/admin/version/**" security="none"/>
 
-    <http request-matcher="regex" pattern=".*/services/.*\.pdf.*" entry-point-ref="entryPointUnauthorizedHandler" use-expressions="true" create-session="stateless">
-        <csrf disabled="true"/>
-        <custom-filter before="FORM_LOGIN_FILTER" ref="authorizationUrlTokenFilter"/>
-        <intercept-url pattern=".*/services/.*\.pdf.*" access="isAuthenticated()" />
-    </http>
-	
-    
     <http entry-point-ref="entryPointUnauthorizedHandler" use-expressions="true" create-session="stateless">
         <csrf disabled="true"/>
         <custom-filter before="FORM_LOGIN_FILTER" ref="authorizationTokenFilter"/>
@@ -29,25 +22,7 @@
     
     <beans:bean id="authorizationTokenFilter" class="ar.com.bago.rest.security.AuthorizationTokenFilter">
         <beans:property name="authenticationManager" ref="authenticationManager" />
-        <beans:property name="requestHandler" ref="headerRequestHandler" />
     </beans:bean>
-    
-    <beans:bean id="authorizationUrlTokenFilter" class="ar.com.bago.rest.security.AuthorizationTokenFilter">
-        <beans:property name="authenticationManager" ref="authenticationManager" />
-        <beans:property name="requestHandler" ref="urlRequestHandler" />
-    </beans:bean>
-    
-    <beans:bean id="urlRequestHandler" class="ar.com.bago.rest.security.SecurityHandler">
-    	<beans:property name="tokenResolver" ref="urlTokenResolver" />
-    </beans:bean>
-    
-    <beans:bean id="headerRequestHandler" class="ar.com.bago.rest.security.SecurityHandler">
-    	<beans:property name="tokenResolver" ref="headerTokenResolver" />
-    </beans:bean>
-    
-    <beans:bean id="urlTokenResolver" class="ar.com.bago.rest.security.UrlTokenResolver" />
-    
-    <beans:bean id="headerTokenResolver" class="ar.com.bago.rest.security.HeaderTokenResolver" />
     
    	<beans:import resource="security-spring-ldap.xml" />
 <!-- 	<beans:import resource="security-spring-database.xml" /> -->

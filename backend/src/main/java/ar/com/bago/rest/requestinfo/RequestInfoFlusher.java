@@ -26,7 +26,6 @@ public class RequestInfoFlusher implements ContainerResponseFilter {
     private HttpServletRequest request;
 
     @Autowired
-    @Qualifier("headerRequestHandler")
     private SecurityHandler requestHandler;
 
     @Override

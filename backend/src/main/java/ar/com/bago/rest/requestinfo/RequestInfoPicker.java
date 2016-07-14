@@ -23,7 +23,6 @@ public class RequestInfoPicker implements ContainerRequestFilter {
     private HttpServletRequest request;
 
     @Autowired
-    @Qualifier("headerRequestHandler")
     private SecurityHandler requestHandler;
 
     @Override

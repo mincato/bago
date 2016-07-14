@@ -39,7 +39,6 @@ public class AuthenticationRestService {
     private AuthenticationService authenticationService;
 
     @Autowired
-    @Qualifier("headerRequestHandler")
     private SecurityHandler securityHandler;
 
     @POST
