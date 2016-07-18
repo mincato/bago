@@ -1,5 +1,7 @@
 package ar.com.bago.rest;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -24,6 +26,7 @@ import ar.com.bago.common.pagination.PageResponse;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
+import ar.com.bago.model.developer.Stats;
 import ar.com.bago.rest.response.RestResponseHandler;
 import ar.com.bago.service.DeveloperService;
 import io.swagger.annotations.Api;
@@ -151,6 +154,19 @@ public class DeveloperRestService {
             return responseHandler.buildSuccessResponse(Status.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @GET
+    @Path("/stats")
+    @PreAuthorize("hasAnyAuthority('READ_DEVELOPER')")
+    @ApiOperation(value = "stats", notes = "Retorna estadisticas de developers.", response = Stats.class, responseContainer = "List")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Error interno del sistema => Ver code y message lanzados"),
+            @ApiResponse(code = 401, message = "Usuario no autenticado"),
+            @ApiResponse(code = 403, message = "Usuario no autorizado") })
+    public Response stats(@Context HttpServletRequest request) {
+        List<Stats> stats = developerService.getStats();
+        return responseHandler.buildSuccessResponse(stats, Status.OK);
     }
 
     public void setResponseHandler(RestResponseHandler responseHandler) {

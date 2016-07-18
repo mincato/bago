@@ -53,6 +53,7 @@
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<mybatis.version>3.4.0</mybatis.version>
 		<mybatis-spring.version>1.3.0</mybatis-spring.version>
+		<commons-dbutils-version>1.6</commons-dbutils-version>
 
 		<slf4j.version>1.7.13</slf4j.version>
 		<nimbus-jose-jwt.version>4.11</nimbus-jose-jwt.version>
@@ -322,6 +323,13 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
+		</dependency>
+		
+		<!-- Apache Commons DBUtils -->
+		<dependency>
+			<groupId>commons-dbutils</groupId>
+			<artifactId>commons-dbutils</artifactId>
+			<version>${commons-dbutils-version}</version>
 		</dependency>
 		
 		<!-- Swagger -->
