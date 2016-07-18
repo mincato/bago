@@ -17,7 +17,9 @@ import ar.com.bago.common.pagination.PageResponse;
 import ar.com.bago.model.developer.Developer;
 import ar.com.bago.model.developer.DeveloperListView;
 import ar.com.bago.model.developer.Seniority;
+import ar.com.bago.model.developer.Stats;
 import ar.com.bago.persistence.DeveloperRepository;
+import ar.com.bago.persistence.StatsRepository;
 
 @Service
 public class DeveloperService {
@@ -30,6 +32,9 @@ public class DeveloperService {
 
     @Autowired
     private ReportService reportService;
+
+    @Autowired
+    private StatsRepository statsRepository;
 
     public PageResponse<DeveloperListView> find(String name, String lastName, Seniority seniority, Integer pageNumber,
             Integer pageSize) {
@@ -107,5 +112,10 @@ public class DeveloperService {
         Map<String, Object> params = new HashMap<>();
         params.put("ReportTitle", String.format("%s Developers", title));
         return reportService.create(reportStream, params, developers);
+    }
+
+    public List<Stats> getStats() {
+        List<Stats> stats = statsRepository.getStats();
+        return stats;
     }
 }
